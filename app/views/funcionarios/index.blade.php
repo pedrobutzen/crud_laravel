@@ -1,4 +1,17 @@
+@extends('template.skeleton')
+
+@section('title_page')
+Funcionario
+@stop
+
+@section('view')
 <h1>Funcionários</h1>
+
+{{ Form::open(array('url' => 'funcionarios', 'method' => 'get')) }}
+{{ Form::text('filtro', $filtro, array('placeholder' => 'Pesquisa')) }}
+{{ Form::select('col[]', array('nome' => 'Nome', 'email' => 'E-mail', 'setor' => 'Setor', 'cargo' => 'Cargo'), $filter_multiple, array('multiple' => 'true', 'id' => 'filter_multiple')); }}
+{{ Form::button('Pesquisar', array('type' => 'submit', 'class' => 'btn btn_search')) }}
+{{ Form::close() }}
 
 <table>
     <thead>
@@ -25,3 +38,4 @@
 <div>
     {{ $paginacao }}
 </div>
+@stop

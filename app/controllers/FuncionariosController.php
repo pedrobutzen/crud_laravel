@@ -10,12 +10,28 @@ class FuncionariosController extends BaseController {
     }
 
     public function index() {
-        $sort = Input::get('sort') === null ? 'nome' : Input::get('sort');
-        $order = Input::get('order') === 'desc' ? 'desc' : 'asc';
+        $hahah = '';
+        $filter_multiple = Input::has('col') ? Input::get('col') : 'nome';
+
+        if ($filter_multiple !== 'nome') {
+            $filter_multiple = Input::get('col');
+            foreach (Input::get('col') as $selected_id) {
+                $hahah .= ' ' . $selected_id;
+            }
+        }
+
+        $sort = Input::get('sort') === NULL ? 'nome' : Input::get('sort');
+        $order = Input::get('order') === NULL ? 'asc' : Input::get('order');
+        $filtro = NULL;
 
         $funcionarios = $this->funcionario->orderBy($sort, $order);
 
-        $funcionarios = $funcionarios->paginate(5);
+        if (Input::has('filtro')) {
+            $funcionarios = $funcionarios->where('nome', 'LIKE', "%" . Input::get('filtro') . "%");
+            $filtro = '&filtro=' . Input::get('filtro');
+        }
+
+        $funcionarios = $funcionarios->paginate(20);
 
         $paginacao = $funcionarios->appends(array(
                     'sort' => Input::get('sort'),
@@ -24,9 +40,11 @@ class FuncionariosController extends BaseController {
 
         return View::make('funcionarios.index')
                         ->with(array(
+                            'filtro' => $hahah,
+                            'filter_multiple' => $filter_multiple,
                             'funcionarios' => $funcionarios,
                             'paginacao' => $paginacao,
-                            'order_url' => 'order=' . (Input::get('order') == 'asc' || null ? 'desc' : 'asc')
+                            'order_url' => 'order=' . (Input::get('order') == 'asc' || NULL ? 'desc' : 'asc') . $filtro
         ));
     }
 
