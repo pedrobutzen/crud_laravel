@@ -13,15 +13,19 @@ Editar Funcionario
 
 {{ Form::label('nome', 'Nome') }}
 {{ Form::text('nome', $funcionario->nome, array('placeholder' => 'Nome')) }}
+{{ $errors->first('nome', '<span class="error">:message</span>') }}
 
 {{ Form::label('email', 'E-mail') }}
 {{ Form::text('email', $funcionario->email, array('placeholder' => 'E-mail')) }}
+{{ $errors->first('email', '<span class="error">:message</span>') }}
 
 {{ Form::label('setor', 'Setor') }}
 {{ Form::text('setor', $funcionario->setor, array('placeholder' => 'Setor')) }}
+{{ $errors->first('setor', '<span class="error">:message</span>') }}
 
 {{ Form::label('cargo', 'Cargo') }}
 {{ Form::text('cargo', $funcionario->cargo, array('placeholder' => 'Cargo')) }}
+{{ $errors->first('cargo', '<span class="error">:message</span>') }}
 
 {{ Form::submit('Salvar') }}
 {{ Form::close() }}
