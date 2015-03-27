@@ -5,6 +5,10 @@
         <title>@yield('title_page') | CRUD Laravel</title>
     </head>
     <body>
+        @if(Session::has('message'))
+        {{ Session::get('message') }}
+        @endif
+
         <div id="view">
             @yield('view')
         </div>
