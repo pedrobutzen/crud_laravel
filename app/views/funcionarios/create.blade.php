@@ -1,15 +1,12 @@
 @extends('template.skeleton')
 
-@section('title_page')
-Cadastrar Funcionario
-@stop
-
 @section('view')
-<h1>Cadastrar Funcionários</h1>
+<div id="content-title">
+    <h1 class="title left">Cadastrar Funcionário</h1>
+    <hr class="title">
+</div>
 
-{{ link_to('funcionarios', 'Voltar', array('class' => '')) }}
-
-{{ Form::open(array('url' => 'funcionarios')) }}
+{{ Form::open(array('url' => 'funcionarios', 'files' => true, 'class' => 'form-padrao' )) }}
 
 {{ Form::label('nome', 'Nome') }}
 {{ Form::text('nome', NULL, array('placeholder' => 'Nome')) }}
@@ -27,7 +24,14 @@ Cadastrar Funcionario
 {{ Form::text('cargo', NULL, array('placeholder' => 'Cargo')) }}
 {{ $errors->first('cargo', '<span class="error">:message</span>') }}
 
-{{ Form::submit('Salvar') }}
+{{ Form::label('image', 'Foto') }}
+{{ Form::file('image') }}
+{{ $errors->first('image', '<span class="error">:message</span>') }}
+
+<div>
+    {{ Form::submit('Salvar', array('class' => 'left')) }}
+    {{ link_to('/', 'Cancelar', array('class' => 'left btn btn-cancel')) }}
+</div>
 {{ Form::close() }}
 
 @stop

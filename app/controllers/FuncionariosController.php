@@ -7,7 +7,8 @@ class FuncionariosController extends BaseController {
         'nome' => 'required',
         'email' => 'required|email',
         'setor' => 'required',
-        'cargo' => 'required'
+        'cargo' => 'required',
+        'image' => 'required|mimes:jpeg,png'
     );
 
     public function __construct(Funcionario $funcionario) {
@@ -49,6 +50,7 @@ class FuncionariosController extends BaseController {
 
         return View::make('funcionarios.index')
                         ->with(array(
+                            'title_page' => 'Funcionário',
                             'filtro' => Input::get('filtro'),
                             'filter_multiple' => $filter_multiple,
                             'funcionarios' => $funcionarios,
@@ -58,7 +60,10 @@ class FuncionariosController extends BaseController {
     }
 
     public function create() {
-        return View::make('funcionarios.create');
+        return View::make('funcionarios.create')
+                        ->with(array(
+                            'title_page' => 'Cadastrar Funcionário'
+        ));
     }
 
     public function store() {
@@ -67,7 +72,8 @@ class FuncionariosController extends BaseController {
 
         if ($validation->passes()) {
             Funcionario::create($dados_input);
-            return Redirect::to('funcionarios')->with('message', 'Registro criado com sucesso!');
+            return Redirect::to('funcionarios')
+                            ->with('message', 'Registro criado com sucesso!');
         }
         return Redirect::back()
                         ->withInput()
@@ -83,7 +89,10 @@ class FuncionariosController extends BaseController {
         $funcionario = Funcionario::find($id);
 
         return View::make('funcionarios.edit')
-                        ->with('funcionario', $funcionario);
+                        ->with(array(
+                            'title_page' => 'Editar Funcionário',
+                            'funcionario' => $funcionario,
+        ));
     }
 
     public function update($id) {
@@ -93,7 +102,8 @@ class FuncionariosController extends BaseController {
 
         if ($validation->passes()) {
             Funcionario::find($id)->update($dados_input);
-            return Redirect::to('funcionarios')->with('message', 'Registro alterado com sucesso!');
+            return Redirect::to('funcionarios')
+                            ->with('message', 'Registro alterado com sucesso!');
         }
         return Redirect::back()
                         ->withInput()
