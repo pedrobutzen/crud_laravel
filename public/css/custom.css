@@ -21,7 +21,7 @@ button, .btn, input[type='submit']{padding: 10px; background-color: #E1E1E1; tex
 #topbar #logado{border-right: 2px solid #ffffff;}
 #topbar #logout a{color: #ffffff; font-weight: 400;}
 
-nav{background-color: #E1E1E1; box-shadow: 0px 0px 10px #717171;}
+nav{background-color: #E1E1E1; box-shadow: 0px 0px 10px #717171; height: 39px;}
 nav a{display: inline-block; padding: 10px 15px; font-weight: 400;}
 nav a:hover{background-color: #CDCDCD;}
 
@@ -32,6 +32,11 @@ nav a:hover{background-color: #CDCDCD;}
 #content-title{width: 100%;}
 h1.title{text-transform: uppercase; margin: 5px 0px; font-family: 'Montserrat', sans-serif; font-size: 25px; color: #838383;}
 hr.title{height: 3px; background-color: #E1E1E1; border: 0px; width: 100%;}
+
+#erro-page{width: 675px; margin: 5% auto 0; text-align: center; font-family: 'Montserrat', sans-serif;}
+#erro-page div{font-size: 200px; color: #607D8B;}
+#erro-page #erro-desconhecido{font-size: 90px;}
+#erro-page #descricao-erro{font-size: 25px; margin-top: 0px;}
 
 #form-search{margin: 5px 0px;}
 

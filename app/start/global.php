@@ -46,11 +46,23 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 |
 */
 
-App::error(function(Exception $exception, $code)
-{
-	Log::error($exception);
+App::error(function(Exception $exception, $code) {
+    if (Auth::check()) {
+        switch ($code) {
+            case 403:
+                return Response::view('errors.403', array('title_page' => 'Permissão negada'), 403);
+            case 404:
+                return Response::view('errors.404', array('title_page' => 'Página não encontrada'), 404);
+            case 500:
+                return Response::view('errors.500', array('title_page' => 'Erro Interno do Servidor'), 500);
+            default:
+                return Response::view('errors.default', array('title_page' => 'Erro desconhecido'), $code);
+        }
+    } else {
+        return Redirect::to('login');
+    }
+    //Log::error($exception);
 });
-
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler
