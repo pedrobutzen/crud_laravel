@@ -116,22 +116,17 @@ class FuncionariosController extends BaseController {
             $pasta_destino = 'img/upload';
             if (Input::hasFile('foto')) {
                 $funcionario = Funcionario::find($id);
+
                 if ($funcionario->foto != 'img/padrao.png' && File::exists(public_path() . '/' . $funcionario->foto)) {
-                    var_dump($funcionario->foto);
-                    var_dump(Input::file('foto'));
-                    exit;
+                    File::delete(public_path() . '/' . $funcionario->foto);
                 }
-                var_dump($funcionario->foto);
-                var_dump(Input::file('foto'));
-                exit;
-                /*
-                  $file_img = Input::file('foto');
-                  $extensao = $file_img->getClientOriginalExtension();
-                  $nome_arquivo = rand(1000000, 9999999) . '.' . $extensao;
+                $file_img = Input::file('foto');
+                $extensao = $file_img->getClientOriginalExtension();
+                $nome_arquivo = rand(1000000, 9999999) . '.' . $extensao;
 
-                  $file_img->move($pasta_destino, $nome_arquivo);
+                $file_img->move($pasta_destino, $nome_arquivo);
 
-                  $dados_input['foto'] = $pasta_destino . '/' . $nome_arquivo; */
+                $dados_input['foto'] = $pasta_destino . '/' . $nome_arquivo;
             }
 
             Funcionario::find($id)->update($dados_input);
@@ -146,7 +141,12 @@ class FuncionariosController extends BaseController {
 
     public function destroy($id) {
         try {
-            Funcionario::find($id)->delete();
+            $funcionario = Funcionario::find($id);
+            if ($funcionario->foto != 'img/padrao.png' && File::exists(public_path() . '/' . $funcionario->foto)) {
+                File::delete(public_path() . '/' . $funcionario->foto);
+            }
+            $funcionario->delete();
+
             return Redirect::to('/')
                             ->with(
                                     'message', 'Registro excluído com sucesso.'

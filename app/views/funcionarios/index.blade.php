@@ -16,22 +16,22 @@
 <table id="list-table">
     <thead>
         <tr>
+            <th></th>
             <th><a href="{{ URL::to('?sort=nome&'. $url) }}">Nome</a></th>
             <th><a href="{{ URL::to('?sort=email&'. $url) }}">E-mail</a></th>
             <th><a href="{{ URL::to('?sort=setor&'. $url) }}">Setor</a></th>
             <th><a href="{{ URL::to('?sort=cargo&'. $url) }}">Cargo</a></th>
-            <th><a href="{{ URL::to('?sort=foto&'. $url) }}">Foto</a></th>
             <th colspan="2"></th>
         </tr>
     </thead>
     <tbody>
         @foreach ($funcionarios as $funcionario)
         <tr>
+            <td id="img-list"><img src="{{ asset($funcionario->foto) }}"/></td>
             <td>{{ $funcionario->nome }}</td>
             <td>{{ $funcionario->email }}</td>
             <td>{{ $funcionario->setor }}</td>
             <td>{{ $funcionario->cargo }}</td>
-            <td>{{ $funcionario->foto }}</td>
             <td class="action">
                 <a href="{{ URL::to('funcionarios/' . $funcionario->id. '/edit') }}" title="Editar">
                     <i class="el el-edit"></i>
