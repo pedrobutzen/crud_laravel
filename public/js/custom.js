@@ -16,7 +16,8 @@ $(document).ready(function() {
             while (file_name.length > 13) {
                 file_name = file_name.substring(1, file_name.length)
             }
+            file_name = inicio + '......' + file_name;
         }
-        $('#content-img p').html(inicio + '......' + file_name);
+        $('#content-img p').html(file_name);
     });
 });

@@ -4,85 +4,85 @@ class FuncionariosTableSeeder extends Seeder {
 
     public function run() {
         DB::table('funcionarios')->delete();
-    
+
         Funcionario::create(array(
-            'nome'  => 'Pedro',
+            'nome' => 'Pedro',
             'email' => 'pedro@dj.emp.br',
             'setor' => 'TI',
             'cargo' => 'Gerente',
-            'foto'  => ''
+            'foto' => 'img/upload/9416076.jpg'
         ));
-        
+
         Funcionario::create(array(
-            'nome'  => 'João',
+            'nome' => 'João',
             'email' => 'joao@dj.emp.br',
             'setor' => 'TI',
             'cargo' => 'Programador',
-            'foto'  => ''
+            'foto' => 'img/padrao.png'
         ));
-        
+
         Funcionario::create(array(
-            'nome'  => 'Flavio',
+            'nome' => 'Flavio',
             'email' => 'flavio@dj.emp.br',
             'setor' => 'TI',
             'cargo' => 'Estagiário',
-            'foto'  => ''
+            'foto' => 'img/padrao.png'
         ));
-        
+
         Funcionario::create(array(
-            'nome'  => 'Maria',
+            'nome' => 'Maria',
             'email' => 'maria@dj.emp.br',
             'setor' => 'Administrativo',
             'cargo' => 'Secretária',
-            'foto'  => ''
+            'foto' => 'img/padrao.png'
         ));
-        
+
         Funcionario::create(array(
-            'nome'  => 'Amanda',
+            'nome' => 'Amanda',
             'email' => 'amanda@dj.emp.br',
             'setor' => 'Administrativo',
             'cargo' => 'Estagiária',
-            'foto'  => ''
+            'foto' => 'img/padrao.png'
         ));
-        
+
         Funcionario::create(array(
-            'nome'  => 'Manoel',
+            'nome' => 'Manoel',
             'email' => 'manoel@dj.emp.br',
             'setor' => 'Financeiro',
             'cargo' => 'Contador',
-            'foto'  => ''
+            'foto' => 'img/padrao.png'
         ));
-        
+
         Funcionario::create(array(
-            'nome'  => 'Laura',
+            'nome' => 'Laura',
             'email' => 'laura@dj.emp.br',
             'setor' => 'RH',
             'cargo' => 'Psicóloga',
-            'foto'  => ''
+            'foto' => 'img/upload/6154235.jpg'
         ));
 
         Funcionario::create(array(
-            'nome'  => 'Debora',
+            'nome' => 'Debora',
             'email' => 'debora@dj.emp.br',
             'setor' => 'RH',
             'cargo' => 'Gerente',
-            'foto'  => ''
+            'foto' => 'img/upload/7961761.jpg'
         ));
 
         Funcionario::create(array(
-            'nome'  => 'Bruno',
+            'nome' => 'Bruno',
             'email' => 'bruno@dj.emp.br',
             'setor' => 'Diretoria',
             'cargo' => 'CEO',
-            'foto'  => ''
+            'foto' => 'img/upload/8193298.jpg'
         ));
 
         Funcionario::create(array(
-            'nome'  => 'Rodrigo',
+            'nome' => 'Rodrigo',
             'email' => 'rodrigo@dj.emp.br',
             'setor' => 'Diretoria',
             'cargo' => 'CEO',
-            'foto'  => ''
+            'foto' => 'img/padrao.png'
         ));
     }
 

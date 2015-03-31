@@ -1,4 +1,4 @@
-.SlectBox, .SlectBoxa { width: 105px; padding: 5px; }
+.SlectBox, .SlectBoxa { width: 105px; padding: 6px; }
 
 /*this is applied on that hidden select. DO NOT USE display:none; or visiblity:hidden; and Do not override any of these properties. */
 .SelectClass { position: absolute; top: 0px; left: 0px; right: 0px; height: 100%; width: 100%; border: none; z-index: 1; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; filter: alpha(opacity=0); -moz-opacity: 0; -khtml-opacity: 0; opacity: 0; }
@@ -13,7 +13,7 @@
 .SumoSelect > .CaptionCont > span.placeholder { color: #ccc; font-style: italic; }
 
 .SumoSelect > .CaptionCont > label { position: absolute; top: 0px; right: 0px; bottom: 0px; width: 20px; background-color: #ffffff; }
-.SumoSelect > .CaptionCont > label > i {/* background-image: url('https://cdn2.iconfinder.com/data/icons/picol-vector/32/arrow_sans_down-16.png');*/ font-size: 10px; color: #838383; background-position: center center; width: 10px; height: 10px; display: block; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; margin: auto; }
+.SumoSelect > .CaptionCont > label > i {font-size: 10px; color: #838383; background-position: center center; width: 10px; height: 10px; display: block; position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; margin: auto; }
 
 .SumoSelect > .optWrapper { top: 30px; width: 100%; position: absolute; left: 0; opacity: 0; visibility: hidden; transition: opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out; -webkit-transition: opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out; -moz-transition: opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out; -ms-transition: opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out; -o-transition: opacity 300ms ease-out, top 300ms ease-out, visibility 300ms ease-out; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; z-index: -100; background: #fff; border: 1px solid #ddd; box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.11); border-radius: 3px; }
 .SumoSelect > .optWrapper.open { top: 40px; visibility: visible; opacity: 1; z-index: 1000; }
@@ -42,7 +42,7 @@
 /*styling for multiple select*/
 .SumoSelect > .optWrapper.multiple > .options > li { padding-left: 35px; }
 .SumoSelect > .optWrapper.multiple > .options > li span { position: absolute; display: block; width: 30px; top: 0px; left: 0px; bottom: 0px; }
-.SumoSelect > .optWrapper.multiple > .options > li span i { background-image: url('http://graphics8.nytimes.com/packages/flash/business/20100325-FinancialTuneUp/gfx/checkbox.png'); position: absolute; margin: auto; left: 0px; right: 0px; top: 0px; bottom: 0px; background-repeat: no-repeat; background-position: center center; width: 16px; height: 16px; }
+.SumoSelect > .optWrapper.multiple > .options > li span i { background-image: url('img/checkbox.png'); position: absolute; margin: auto; left: 0px; right: 0px; top: 0px; bottom: 0px; background-repeat: no-repeat; background-position: center center; width: 16px; height: 16px; }
 .SumoSelect > .optWrapper > .MultiControls { display: none; border-top: 1px solid #ddd; background-color: #fff; box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.13); border-radius: 0px 0px 3px 3px; }
 .SumoSelect > .optWrapper.multiple.isFloating > .MultiControls { display: block; margin-top: 5px; position: absolute; bottom: 0px; width: 100%; }
 
@@ -60,7 +60,7 @@
 .SumoSelect > .optWrapper.multiple.isFloating > .options > li { padding-left: 35px; }
 .SumoSelect > .optWrapper.multiple.isFloating { padding-bottom: 43px; }
 /*selected state*/
-.SumoSelect > .optWrapper.multiple > .options > li.selected span i { background-image: url('https://cdn1.iconfinder.com/data/icons/Keyamoon-IcoMoon--limited/16/checkbox-checked.png'); }
+.SumoSelect > .optWrapper.multiple > .options > li.selected span i { background-image: url('img/checkbox-checked.png'); }
 
 /*disabled state*/
 .SumoSelect.disabled { opacity: 0.7;}

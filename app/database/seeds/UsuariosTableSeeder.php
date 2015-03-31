@@ -9,29 +9,29 @@ class UsuariosTableSeeder extends Seeder {
          * A senha cadastrada é o tudo que está antes do @ no email
          * Eemplo o email é 'teste@teste.com' a senha será apenas 'teste'
          */
-        
+
         Usuario::create(array(
-            'nome'  => 'Administrador',
+            'nome' => 'Administrador',
             'email' => 'admin@teste.com',
-            'senha' => Hash::make('admin')
+            'password' => Hash::make('admin')
         ));
 
         Usuario::create(array(
-            'nome'  => 'Gerente',
+            'nome' => 'Gerente',
             'email' => 'gerente@teste.com',
-            'senha' => Hash::make('gerente')
+            'password' => Hash::make('gerente')
         ));
 
         Usuario::create(array(
-            'nome'  => 'Secretaria',
+            'nome' => 'Secretaria',
             'email' => 'secretaria@teste.com',
-            'senha' => Hash::make('secretaria')
+            'password' => Hash::make('secretaria')
         ));
 
         Usuario::create(array(
-            'nome'  => 'Contador',
+            'nome' => 'Contador',
             'email' => 'contador@teste.com',
-            'senha' => Hash::make('contador')
+            'password' => Hash::make('contador')
         ));
     }
 

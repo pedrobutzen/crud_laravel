@@ -1,5 +1,7 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,700);
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@font-face{font-family:'Montserrat'; font-style:normal; font-weight:400; src: url(../fonts/Montserrat-weight-400.woff2) format('woff2');}
+@font-face{font-family:'Montserrat'; font-style:normal; font-weight:700; src: url(../fonts/Montserrat-weight-700.woff2) format('woff2');}
+@font-face{ font-family:'Open Sans'; font-style:normal; font-weight:300; src: url(../fonts/Open-Sans-weight-300.woff2) format('woff2');}
+@font-face{font-family:'Open Sans'; font-style:normal; font-weight:700; src: url(../fonts/Open-Sans-weight-700.woff2) format('woff2');}
 
 body {margin: 0; font-family: 'Open Sans', arial, sans-serif; font-size: 14px; text-align: left;}
 a, a:hover, a:active, a:focus, a:visited{text-decoration: none;}
@@ -10,13 +12,14 @@ input{padding: 6.5px; border: 1px solid #ccc; font-family: 'Open Sans', arial, s
 button, .btn, input[type='submit']{padding: 10px; background-color: #E1E1E1; text-align: center;}
 .left{float: left;}
 .right{float: right;}
+.clear{clear: both;}
 
 #topbar{width: 100%; background-color: #607D8B; height: 50px; color: #ffffff; cursor: default;}
-#topbar #logo{font-size: 19px; padding: 10px; font-weight: 600; float: left;}
+#topbar #logo{font-size: 19px; padding: 12px; font-weight: 600; float: left;}
 #topbar #content-logado{float: right; font-family: 'Montserrat', sans-serif; width: auto;}
+#topbar #content-logado div{padding: 16px; float: left;}
 #topbar #logado{border-right: 2px solid #ffffff;}
-#topbar #logout{cursor: pointer;}
-#topbar #content-logado div{padding: 14px; float: left;}
+#topbar #logout a{color: #ffffff; font-weight: 400;}
 
 nav{background-color: #E1E1E1; box-shadow: 0px 0px 10px #717171;}
 nav a{display: inline-block; padding: 10px 15px; font-weight: 400;}
@@ -36,13 +39,15 @@ hr.title{height: 3px; background-color: #E1E1E1; border: 0px; width: 100%;}
 #list-table button{background: none;}
 
 #list-table{border: 1px solid #ccc; width: 100%;}
-#list-table, th, td{text-align: left; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;  border-collapse: collapse;}
+#list-table, #list-table th, #list-table td{text-align: left; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;  border-collapse: collapse;}
 #list-table th{background-color: #E1E1E1;}
 #list-table td, #list-table th{padding: 10px 15px}
 #list-table td.action{padding: 0px; width: 45px;}
 #list-table td.action a, #list-table td.action button{padding: 10px;}
 #list-table #img-list{padding: 0px;}
 #list-table #img-list img{ padding: 5px 0px 0px 5px; width: 50px; height: 50px;}
+
+.nenhum-encontrado{color: red; display: table; width: 100%;}
 
 .pagination{text-align: right; list-style: none; width: 100%; padding: 0; margin: 15px 0px 10px 0px;}
 .pagination a, .btn, .btn:hover, .pagination a:hover{color: #2C2C2C; font-weight: 400;}
@@ -58,14 +63,23 @@ hr.title{height: 3px; background-color: #E1E1E1; border: 0px; width: 100%;}
 .form-padrao input[type='submit']:hover, .form-padrao .btn-cancel:hover, .btn:hover{background-color: #607D8B; color: #ffffff;}
 .form-padrao .btn-cancel{font-size: 14px; font-weight: 400; margin-left: 10px;}
 .form-padrao input[type='file']{border: 0px;}
-.form-padrao .error{display: table; color: red;}
+.error{display: table; color: red;}
 
 #content-img{padding: 15px 25px 0px 0px;}
 #content-img #img-perfil{width: 300px; height: 300px; padding: 6px; background-color: #F0EFEF; border: 2px solid #CCCCCC;}
 #content-img p{width: 316px;}
-.inputFile{width: 316px; height:316px; position: relative; overflow: hidden;}
+.inputFile{width: 316px; height:316px; position: relative; overflow: hidden; margin: 0 auto;}
 .inputFile img{display: block; position: absolute;}
 .inputFile input{position: absolute; right: 0; z-index: 2; font-size: 222px; opacity: 0; filter: alpha(opacity=0);}
+
+#body-login{background-color: #E1E1E1;}
+#content-login{margin: 9% auto 0; width: 350px; background-color: #ffffff; box-shadow: 3px 3px 8px #B3B3B3;}
+#content-login #top-title{display: inline-block; background-color: #607D8B; height: 70px; width: 100%}
+#content-login #top-title div{color: #ffffff; margin: 16px 0px; font-size: 28px; text-align: center;}
+#content-login #top-title div span{font-weight: 600;}
+#form-login{padding: 25px 0; width: 265px; margin: 0 auto;}
+#form-login input{width: 250px; margin: 15px 0 5px 0;;}
+#form-login input[type='submit']{width: 100px; margin: 15px 0 20px 0; float: right;}
 
 @media (min-width: 1400px) {
     #view{width: 1250px; margin: 0 auto;}

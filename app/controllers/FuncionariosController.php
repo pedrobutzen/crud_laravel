@@ -80,7 +80,7 @@ class FuncionariosController extends BaseController {
 
                 $dados_input['foto'] = $pasta_destino . '/' . $nome_arquivo;
             } else {
-                $dados_input['foto'] = $pasta_destino . '/padrao.jpg';
+                $dados_input['foto'] = 'img/padrao.png';
             }
 
             Funcionario::create($dados_input);

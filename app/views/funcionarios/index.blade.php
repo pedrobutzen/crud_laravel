@@ -3,7 +3,7 @@
 @section('view')
 <div id="content-title">
     <h1 class="title left">Funcionários</h1>
-    {{ Form::open(array('url' => 'funcionarios', 'method' => 'get', 'class' => 'right', 'id' => 'form-search')) }}
+    {{ Form::open(array('url' => '/', 'method' => 'get', 'class' => 'right', 'id' => 'form-search')) }}
     {{ Form::text('filtro', $filtro, array('placeholder' => 'Pesquisa')) }}
     {{ Form::select('col[]', array('nome' => 'Nome', 'email' => 'E-mail', 'setor' => 'Setor', 'cargo' => 'Cargo'), $filter_multiple, array('multiple' => 'true', 'id' => 'filter_multiple')); }}
     {{ Form::button('', array('type' => 'submit', 'class' => 'btn el el-search btn-search', 'title' => 'Pesquisar')) }}
@@ -50,6 +50,6 @@
     <div>Exibindo de {{ $funcionarios->getFrom() }} até {{ $funcionarios->getTo() }} de {{ $funcionarios->getTotal() }} registros.</div>
 </div>
 @else
-<p>Nenhum registro encontrado.</p>
+<p class="nenhum-encontrado">Nenhum registro encontrado.</p>
 @endif
 @stop
