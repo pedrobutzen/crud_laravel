@@ -13,8 +13,14 @@
     </head>
     <body>
         @if(Session::has('message'))
-        {{ Session::get('message') }}
+        <div id="alert"><div id="alert_msg">{{ Session::get('message') }}</div></div>
+        <script type="text/javascript">
+            setTimeout(function() {
+                $('#alert').fadeOut();
+            }, 5000);
+        </script>
         @endif
+
         <div id="topbar">
             <div id="logo">CRUD Laravel <i class="icon ico-edit"></i></div>
             <div id="content-logado">

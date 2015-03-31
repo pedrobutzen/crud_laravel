@@ -4,11 +4,11 @@ class FuncionariosController extends BaseController {
 
     protected $funcionario;
     protected $rules = array(
-        'nome' => 'required',
-        'email' => 'required|email',
-        'setor' => 'required',
-        'cargo' => 'required',
-        'image' => 'required|mimes:jpeg,png'
+        'nome' => 'required|max:128',
+        'email' => 'required|email|max:128',
+        'setor' => 'required|max:128',
+        'cargo' => 'required|max:128',
+        'foto' => 'mimes:jpeg,jpg,png|max:1000'
     );
 
     public function __construct(Funcionario $funcionario) {
@@ -17,7 +17,6 @@ class FuncionariosController extends BaseController {
     }
 
     public function index() {
-
         $sort = Input::get('sort') === NULL ? 'nome' : Input::get('sort');
         $order = Input::get('order') === NULL ? 'asc' : Input::get('order');
         $filtro_url = $field_filtro_url = NULL;
@@ -71,8 +70,21 @@ class FuncionariosController extends BaseController {
         $validation = Validator::make($dados_input, $this->rules);
 
         if ($validation->passes()) {
+            $pasta_destino = 'img/upload';
+            if (Input::hasFile('foto')) {
+                $file_img = Input::file('foto');
+                $extensao = $file_img->getClientOriginalExtension();
+                $nome_arquivo = rand(1000000, 9999999) . '.' . $extensao;
+
+                $file_img->move($pasta_destino, $nome_arquivo);
+
+                $dados_input['foto'] = $pasta_destino . '/' . $nome_arquivo;
+            } else {
+                $dados_input['foto'] = $pasta_destino . '/padrao.jpg';
+            }
+
             Funcionario::create($dados_input);
-            return Redirect::to('funcionarios')
+            return Redirect::to('/')
                             ->with('message', 'Registro criado com sucesso!');
         }
         return Redirect::back()
@@ -101,8 +113,29 @@ class FuncionariosController extends BaseController {
         $validation = Validator::make($dados_input, $this->rules);
 
         if ($validation->passes()) {
+            $pasta_destino = 'img/upload';
+            if (Input::hasFile('foto')) {
+                $funcionario = Funcionario::find($id);
+                if ($funcionario->foto != 'img/padrao.png' && File::exists(public_path() . '/' . $funcionario->foto)) {
+                    var_dump($funcionario->foto);
+                    var_dump(Input::file('foto'));
+                    exit;
+                }
+                var_dump($funcionario->foto);
+                var_dump(Input::file('foto'));
+                exit;
+                /*
+                  $file_img = Input::file('foto');
+                  $extensao = $file_img->getClientOriginalExtension();
+                  $nome_arquivo = rand(1000000, 9999999) . '.' . $extensao;
+
+                  $file_img->move($pasta_destino, $nome_arquivo);
+
+                  $dados_input['foto'] = $pasta_destino . '/' . $nome_arquivo; */
+            }
+
             Funcionario::find($id)->update($dados_input);
-            return Redirect::to('funcionarios')
+            return Redirect::to('/')
                             ->with('message', 'Registro alterado com sucesso!');
         }
         return Redirect::back()
@@ -114,7 +147,10 @@ class FuncionariosController extends BaseController {
     public function destroy($id) {
         try {
             Funcionario::find($id)->delete();
-            return Redirect::to('funcionarios');
+            return Redirect::to('/')
+                            ->with(
+                                    'message', 'Registro excluído com sucesso.'
+            );
         } catch (Exception $e) {
             var_dump($e);
         }

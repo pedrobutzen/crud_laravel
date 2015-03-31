@@ -22,6 +22,9 @@ nav{background-color: #E1E1E1; box-shadow: 0px 0px 10px #717171;}
 nav a{display: inline-block; padding: 10px 15px; font-weight: 400;}
 nav a:hover{background-color: #CDCDCD;}
 
+#alert{position: absolute; bottom: 0px; right: 0px; height: auto; width: 300px; margin: 0px 30px 40px 0px; background-color: #607D8B; color: #ffffff; z-index: 9999;}
+#alert div{padding: 25px;}
+
 #view{padding: 30px 60px;}
 #content-title{width: 100%;}
 h1.title{text-transform: uppercase; margin: 5px 0px; font-family: 'Montserrat', sans-serif; font-size: 25px; color: #838383;}
@@ -52,4 +55,12 @@ hr.title{height: 3px; background-color: #E1E1E1; border: 0px; width: 100%;}
 .form-padrao input[type='submit'], .form-padrao .btn-cancel{display: inline-block; margin-top: 15px; width: 140px;}
 .form-padrao input[type='submit']:hover, .form-padrao .btn-cancel:hover, .btn:hover{background-color: #607D8B; color: #ffffff;}
 .form-padrao .btn-cancel{font-size: 14px; font-weight: 400; line-height: 1.4; margin-left: 10px;}
+.form-padrao input[type='file']{border: 0px;}
 .form-padrao .error{display: table; color: red;}
+
+#content-img{padding: 15px 25px 0px 0px;}
+#content-img #img-perfil{width: 300px; height: 300px; padding: 6px; background-color: #F0EFEF; border: 2px solid #CCCCCC;}
+
+.inputFile{width: 316px; height:316px; position: relative; overflow: hidden;}
+.inputFile img{display: block; position: absolute;}
+.inputFile input{position: absolute; right: 0; z-index: 2; font-size: 222px; opacity: 0; filter: alpha(opacity=0);}

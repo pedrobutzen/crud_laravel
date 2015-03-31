@@ -7,8 +7,14 @@
 </div>
 
 {{ Form::open(array('url' => 'funcionarios/' . $funcionario->id, 'method' => 'put', 'class' => 'form-padrao')) }}
-<div class="left">
 
+<div class="left" id="content-img">
+    <div class="inputFile">
+        <img id="img-perfil" src="{{ asset($funcionario->foto) }}"/>
+        {{ Form::file('foto') }}
+        {{ $errors->first('foto', '<span class="error">:message</span>') }}
+    </div>
+    <p>*Clique na imagem para editar a foto.</p>
 </div>
 <div class="left">
     {{ Form::label('nome', 'Nome') }}
