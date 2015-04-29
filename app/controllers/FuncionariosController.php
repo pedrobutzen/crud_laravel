@@ -49,7 +49,7 @@ class FuncionariosController extends BaseController {
 
         return View::make('funcionarios.index')
                         ->with(array(
-                            'title_page' => 'FuncionÃ¡rio',
+                            'title_page' => 'Funcionário',
                             'filtro' => Input::get('filtro'),
                             'filter_multiple' => $filter_multiple,
                             'funcionarios' => $funcionarios,
@@ -61,7 +61,7 @@ class FuncionariosController extends BaseController {
     public function create() {
         return View::make('funcionarios.create')
                         ->with(array(
-                            'title_page' => 'Cadastrar FuncionÃ¡rio'
+                            'title_page' => 'Cadastrar Funcionário'
         ));
     }
 
@@ -102,7 +102,7 @@ class FuncionariosController extends BaseController {
 
         return View::make('funcionarios.edit')
                         ->with(array(
-                            'title_page' => 'Editar FuncionÃ¡rio',
+                            'title_page' => 'Editar Funcionário',
                             'funcionario' => $funcionario,
         ));
     }
@@ -110,13 +110,15 @@ class FuncionariosController extends BaseController {
     public function update($id) {
         $dados_input = Input::all();
         $dados_input['id'] = $id;
+
         $validation = Validator::make($dados_input, $this->rules);
+
+        $funcionario = Funcionario::find($id);
+        $dados_input['foto'] = $funcionario->foto;
 
         if ($validation->passes()) {
             $pasta_destino = 'img/upload';
             if (Input::hasFile('foto')) {
-                $funcionario = Funcionario::find($id);
-
                 if ($funcionario->foto != 'img/padrao.png' && File::exists(public_path() . '/' . $funcionario->foto)) {
                     File::delete(public_path() . '/' . $funcionario->foto);
                 }
@@ -149,7 +151,7 @@ class FuncionariosController extends BaseController {
 
             return Redirect::to('/')
                             ->with(
-                                    'message', 'Registro excluÃ­do com sucesso.'
+                                    'message', 'Registro excluído com sucesso.'
             );
         } catch (Exception $e) {
             var_dump($e);
