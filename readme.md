@@ -1,4 +1,4 @@
-## Aplicação Crude com Laravel PHP Framework 4.2
+## Aplicação Crud com Laravel PHP Framework 4.2
 
 Código em funcionamento em:
 http://pedrobutzen.com/crud_laravel/public/
