@@ -1,4 +1,4 @@
-## Crud Básico com Laravel PHP Framework
+## Aplicação Crude com Laravel PHP Framework 4.2
 
 Código em funcionamento em:
 http://pedrobutzen.com/crud_laravel/public/
@@ -41,7 +41,7 @@ Senha: contador
 
 ## Official Documentation Laravel PHP Framework
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
+Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs/4.2).
 
 ### Contributing To Laravel
 
